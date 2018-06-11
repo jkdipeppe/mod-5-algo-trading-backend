@@ -6,6 +6,14 @@ class Api::V1::PositionsController < ApplicationController
     render json: @positions
   end
 
+  def show
+    render json: current_account.positions
+  end
+
+  def show_positions
+    render json: current_account.positions
+  end
+
   def create
     @position = User.create(position_params)
     render json: @position, status: :accepted

@@ -1,5 +1,7 @@
 class Api::V1::AccountsController < ApplicationController
   before_action :find_account, only: [:update, :show_account]
+  skip_before_action :authorized, only: [:create]
+
 
     def show_account
       render json: current_account
@@ -26,7 +28,7 @@ class Api::V1::AccountsController < ApplicationController
 
     private
     def account_params
-      params.permit(:username, :password_digest, :id)
+      params.permit(:username, :email, :password, :id)
     end
 
     def find_account

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :positions
       resources :accounts
       get '/account', to: 'accounts#show_account'
+      get '/positions/:id', to: 'positions#show_positions'
 
     end
   end
