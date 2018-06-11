@@ -34,6 +34,6 @@ class Api::V1::PositionsController < ApplicationController
   end
 
   def find_position
-    @position = User.find(params[:id])
+    @position = Position.find(params[:id])
   end
 end
