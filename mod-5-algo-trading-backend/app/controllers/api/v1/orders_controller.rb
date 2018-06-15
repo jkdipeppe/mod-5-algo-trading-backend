@@ -6,8 +6,20 @@ class Api::V1::OrdersController < ApplicationController
     render json: @orders
   end
 
+  def show
+    render json: current_account.orders
+  end
+
+  # def show_orders
+  #   render json: current_account.orders
+  # end
+
   def create
     @order = Order.create(order_params)
+    byebug
+    @position = Position.find(order_params[:position_id])
+    byebug
+    OrdersJob.perform(order_params)
     render json: @order, status: :accepted
   end
 
@@ -22,7 +34,7 @@ class Api::V1::OrdersController < ApplicationController
 
   private
   def order_params
-    params.permit(:quantity, :price, :account_id, :trading_pair)
+    params.permit(:quantity, :price, :account_id, :trading_pair, :usd_id, :position_id, :limit, :buy_or_sell)
   end
 
   def find_order

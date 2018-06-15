@@ -14,6 +14,11 @@ class Api::V1::AccountsController < ApplicationController
 
     def create
       @account = Account.create(account_params)
+      Position.create(account_id: @account.id, quantity: 0, trading_pair: 'USD')
+      Position.create(account_id: @account.id, quantity: 0, trading_pair: 'BTC-USD')
+      Position.create(account_id: @account.id, quantity: 0, trading_pair: 'ETH-USD')
+      Position.create(account_id: @account.id, quantity: 0, trading_pair: 'BCH-USD')
+      Position.create(account_id: @account.id, quantity: 0, trading_pair: 'LTC-USD')
       render json: @account, status: :accepted
     end
 

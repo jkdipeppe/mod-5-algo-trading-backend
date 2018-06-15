@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(version: 20180605141633) do
     t.decimal "price"
     t.boolean "limit"
     t.string "trading_pair"
+    t.integer "usd_id"
+    t.integer "position_id"
+    t.string "buy_or_sell"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
