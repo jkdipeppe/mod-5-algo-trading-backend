@@ -6,6 +6,9 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.decimal :price
       t.boolean :limit
       t.string :trading_pair
+      t.integer :usd_id
+      t.integer :position_id
+      t.string :buy_or_sell
 
       t.timestamps
     end
