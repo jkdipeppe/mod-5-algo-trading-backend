@@ -23,17 +23,17 @@ class Api::V1::AccountsController < ApplicationController
     end
 
     def update
-      @account.update(account_params)
-      if @account.save
-        render json: @account, status: :accepted
+      @current_account.update(account_params)
+      if @current_account.save
+        render json: @current_account, status: :accepted
       else
-        render json: {errors: @account.erros.full_messages}, status: :unprocessible_entity
+        render json: {errors: @current_account.erros.full_messages}, status: :unprocessible_entity
       end
     end
 
     private
     def account_params
-      params.permit(:username, :email, :password, :id)
+      params.permit(:username, :email, :password, :id, :cash_deposited)
     end
 
     def find_account

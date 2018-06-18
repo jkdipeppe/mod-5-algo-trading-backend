@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Account.create(email: 'me@gmail.com', username: 'me', password: 'me2')
-Account.create(email: 'kyle@gmail.com', username: 'kyle', password: 'kyle')
+Account.create(email: 'me@gmail.com', username: 'me', password: 'me2', cash_deposited: 0)
+Account.create(email: 'kyle@gmail.com', username: 'kyle', password: 'kyle', cash_deposited: 0)
 Position.create(account_id: 1, quantity: 0, trading_pair: 'BTC-USD')
 Position.create(account_id: 1, quantity: 0, trading_pair: 'ETH-USD')
 Position.create(account_id: 1, quantity: 0, trading_pair: 'LTC-USD')
